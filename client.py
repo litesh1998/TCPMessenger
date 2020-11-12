@@ -1,5 +1,6 @@
 import socket
 import threading
+from sys import exit
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.connect(("127.0.0.1", 55556))
@@ -25,8 +26,8 @@ def write():
             message=f'{nickname}: {input("")}'
             server.send(message.encode('ascii'))
         except:
-            break
-        
+            exit()
+
 recive_thread=threading.Thread(target=recive)
 recive_thread.start()
 
