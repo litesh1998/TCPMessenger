@@ -26,6 +26,7 @@ def write():
             message=f'{nickname}: {input("")}'
             server.send(message.encode('ascii'))
         except:
+            server.close()
             exit()
 
 recive_thread=threading.Thread(target=recive)
